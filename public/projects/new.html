@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../build/tailwind.css">
+</head>
+<body>
+
+    <!-- Containing Div -->
+    <div class="relative w-screen h-screen bg-gray-100 flex flex-col overflow-hidden">
+
+        <!-- Header -->
+        <header class="relative h-16 z-20 flex bg-gray-700 text-gray-200 shadow-xl">
+            <!-- Header Button -->
+            <button onclick="toggleSidebar()" id="sidebar-btn" class="md:hidden inline-block h-full w-16 bg-transparent hover:bg-gray-800 focus:outline-none focus:shadow-outline transition duration-200 ease-in-out">
+                <svg class="hidden fill-current h-6 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>
+                <svg class="fill-current h-6 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg>
+            </button>
+            <!-- Logo -->
+            <div class="h-full py-2 md:pl-8 pl-4">
+                <svg class="h-full" viewBox="0 0 500 221" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g transform="translate(1.000000, 0.000000)">
+                            <g>
+                                <g transform="translate(137.886335, 0.000000)">
+                                    <polygon fill="#CACACA" points="110.264962 0 151.544498 82.6411555 80.5868956 132.324667 67.2419224 86.1431447"></polygon>
+                                    <polygon fill="#FFFFFF" points="82.6987212 129.121387 116.626402 63.6763006 151.544498 82.6411555 220.529923 220.744509 0 220.744509 67.2416332 86.1431447"></polygon>
+                                </g>
+                                <ellipse fill="#CACACA" cx="53.9073146" cy="110.065665" rx="53.9073146" ry="53.9597688"></ellipse>
+                                <ellipse fill="#CACACA" cx="444.429054" cy="110.065665" rx="53.9073146" ry="53.9597688"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <!-- Header Nav Section -->
+            <nav class="ml-auto flex md:pr-8 pr-0 items-center">
+                <!-- Dropdown -->
+                <div class="relative h-full">
+                    <!-- Header Button -->
+                    <button onclick="toggleDropdown()" class="h-full inline-block w-16 bg-transparent hover:bg-gray-800 focus:outline-none focus:shadow-outline transition duration-200 ease-in-out">
+                        <svg class="fill-current h-6 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>
+                    </button>
+                    <div id="dropdown" class="hidden absolute z-20 mt-16 top-0 right-0 w-48 text-gray-800 transition duration-200 ease-in-out bg-gray-500 shadow-xl px-3">
+                        <!-- Dropdown Nav -->
+                        <nav class="flex flex-col pt-1">
+                            <!-- Dropdown Links -->
+                            <a href="../notes/new.html" class="text-sm bg-gray-200 shadow-sm inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                                New note
+                            </a>
+                            <a href="../projects/new.html" class="text-sm bg-gray-200 inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                                New project
+                            </a>
+                            <a href="../resources/new.html" class="text-sm bg-gray-200 inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                                New resource
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+                <!-- Header Button -->
+                <button class="h-full inline-block w-16 bg-transparent hover:bg-gray-800 focus:outline-none focus:shadow-outline transition duration-200 ease-in-out">
+                    <svg class="fill-current h-6 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"/></svg>
+                </button>
+            </nav>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="absolute z-10 top-0 left-0 h-screen xl:w-1/5 lg:w-3/12 md:w-4/12 w-64 transform md:translate-x-0 -translate-x-64 transition duration-200 ease-in-out bg-gray-300 shadow-lg overflow-y-scroll pt-16 pb-10">
+            <!-- Sidebar Nav -->
+            <nav class="flex flex-col pt-5">
+                <!-- Sidebar Links -->
+                <a href="../index.html" class="inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                    Overview
+                </a>
+                <a href="../content.html" class="inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                    Content
+                </a>
+                <a href="../projects.html" class="inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                    Projects
+                </a>
+                <a href="../resources.html" class="inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                    Resources
+                </a>
+                <a href="../notes.html" class="inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                    Notes
+                </a>
+                <a href="../pricing.html" class="inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                    Pricing
+                </a>
+                <a href="../settings.html" class="inline-block py-2 px-8 hover:bg-gray-400 transition duration-200 ease-in-out mb-1">
+                    Settings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main -->
+        <main class="xl:w-4/5 lg:w-9/12 md:w-8/12 w-full ml-auto overflow-y-scroll pb-10">
+            <section class="pt-5 px-8">
+                <h2 class="text-2xl border-b pb-2 mb-5">New project</h2>
+                <p class="text-gray-700 font-light mb-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore placeat officiis obcaecati? Neque eveniet magnam praesentium cum debitis dolorem, officiis excepturi rem repudiandae nulla consequuntur, id, perspiciatis tempora officia fugit.</p>
+                <div class="flex flex-wrap -mx-2">
+                    <!-- Card -->
+                    <div class="xl:w-1/2 lg:w-2/3 md:w-full sm:w-2/3 w-full mb-4 mx-auto">
+                        <!-- Card Form -->
+                        <div class="rounded-lg border flex flex-col border-gray-400 bg-gray-100 text-gray-800 text-base font-light py-2 px-3 overflow-hidden">
+                            <div class="flex flex-col mb-3">
+                                <lablel for="title">Title</lablel>
+                                <input id="title" type="text" placeholder="Jane Doe" class="w-full appearance-none border border-gray-500 rounded-full py-2 px-5 text-grey-darkest leading-tight focus:outline-none focus:shadow-outline bg-transparent mt-2">
+                            </div>
+                            <div class="flex flex-col mb-3">
+                                <lablel for="link">Site link</lablel>
+                                <input id="link" type="text" placeholder="Link to website" class="w-full appearance-none border border-gray-500 rounded-full py-2 px-5 text-grey-darkest leading-tight focus:outline-none focus:shadow-outline bg-transparent mt-2">
+                            </div>
+                            <div class="flex flex-col mb-3">
+                                <lablel for="code">Code link</lablel>
+                                <input id="code" type="text" placeholder="Link to code" class="w-full appearance-none border border-gray-500 rounded-full py-2 px-5 text-grey-darkest leading-tight focus:outline-none focus:shadow-outline bg-transparent mt-2">
+                            </div>
+                            <div class="flex flex-col mb-3">
+                                <lablel for="badges">Badges</lablel>
+                                <input id="badges" type="text" placeholder="Project badges" class="w-full appearance-none border border-gray-500 rounded-full py-2 px-5 text-grey-darkest leading-tight focus:outline-none focus:shadow-outline bg-transparent mt-2">
+                            </div>
+                            <div class="flex flex-col mb-3">
+                                <lablel for="short">Short description</lablel>
+                                <textarea name="short" id="short" rows="6" placeholder="This will be on display..." class="w-full appearance-none border border-gray-500 rounded-lg py-2 px-5 text-grey-darkest leading-tight focus:outline-none focus:shadow-outline bg-transparent mt-2"></textarea>
+                            </div>
+                            <div class="flex flex-col mb-3">
+                                <lablel for="project">Project</lablel>
+                                <textarea name="project" id="project" rows="30" placeholder="Write note using markdown language..." class="w-full appearance-none border border-gray-500 rounded-lg py-2 px-5 text-grey-darkest leading-tight focus:outline-none focus:shadow-outline bg-transparent mt-2"></textarea>
+                            </div>
+                            <button type="button" class="self-center inline-block appearance-none bg-transparent border border-gray-700 text-gray-700 rounded-full hover:bg-gray-600 hover:text-gray-200 focus:text-gray-100 focus:bg-gray-700 focus:outline-none focus:shadow-outline transition duration-200 ease-in-out px-5 py-2">Save</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="absolute z-20 bottom-0 w-screen bg-gray-600">
+            <div class="py-2 px-8 text-center">
+                &copy; CrestWorks 2020
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            for (let i = 0; i < document.querySelector('#sidebar-btn').children.length; i++) {
+                element = document.querySelector('#sidebar-btn').children[i]
+                element.classList.toggle('hidden')
+            }
+
+            document.querySelector('#sidebar').classList.toggle('-translate-x-64')
+        }
+
+        function toggleDropdown() {
+            document.querySelector('#dropdown').classList.toggle('hidden')
+        }
+    </script>
+</body>
+</html>
